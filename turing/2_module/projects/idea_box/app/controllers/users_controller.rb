@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :logged_in?, only: [:show]
 
   def index
     render :text => "This is the index page"
@@ -24,10 +25,22 @@ class UsersController < ApplicationController
 
 
 
+
 private
 
   def user_params
     params.require(:user).permit(:username, :password)
+  end
+
+  def logged_in?
+    if session[:user_id] != nil
+      true
+    else
+      flash[:error] = "You must be logged in to perform this action"
+      redirect_to login_path
+      return false
+    end
+
   end
 
 
