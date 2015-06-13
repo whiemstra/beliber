@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
 
-
+  get '/idea', to: 'ideas#new'
+  post '/idea', to: 'ideas#create'
+  # get '/idea', to: 'ideas#destroy'
 end
