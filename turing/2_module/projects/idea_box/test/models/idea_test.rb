@@ -35,6 +35,6 @@ class IdeaTest < ActiveSupport::TestCase
   # end
 
   # test "idea must associate with a category" do
-  #
+  #   assert_respond_to(@idea, :category)
   # end
 end
